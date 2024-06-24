@@ -35,4 +35,14 @@ services:
     depends_on:
       - db
     env_file:
-      - /.env
+      - .env
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: petsitter_frontend
+    ports:
+      - '80:80'
+    depends_on:
+      - api
